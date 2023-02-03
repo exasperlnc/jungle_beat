@@ -64,15 +64,15 @@ require './lib/linkedlist'
 # end
 
 RSpec.describe LinkedList do
-  it 'counts three nodes' do
+  it 'counts four nodes' do
 
     list = LinkedList.new
     list.append("bloop")
     list.append("flomp")
     list.append("teeth")
     list.append("awer")
-    require 'pry'; binding.pry
+    # require 'pry'; binding.pry
 
-  expect(list.count).to eq(3)
+  expect(list.count).to eq(4)
   end
 end
