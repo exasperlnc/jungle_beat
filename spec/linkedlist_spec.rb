@@ -1,67 +1,67 @@
 require 'rspec'
-require './lib/linkedlist'
+require './lib/linked_list'
 
-# RSpec.describe LinkedList do
-#   it 'exists' do
+RSpec.describe LinkedList do
+  it 'exists' do
 
-#     data = "bloop"
-#     node = Node.new(data)
-#     list = LinkedList.new
+    data = "bloop"
+    node = Node.new(data)
+    list = LinkedList.new
     
-#     expect(list).to be_instance_of(LinkedList)
+    expect(list).to be_instance_of(LinkedList)
 
-#   end
-# end
+  end
+end
 
-# RSpec.describe LinkedList do
-#   it 'has node' do
-#     list = LinkedList.new
-#     list.append("bloop")
+RSpec.describe LinkedList do
+  it 'has node' do
+    list = LinkedList.new
+    list.append("bloop")
 
-#   expect(list.head.data).to eq("bloop")
-#   end
-# end
+  expect(list.head.data).to eq("bloop")
+  end
+end
 
-# RSpec.describe LinkedList do
-#   it 'holds two nodes' do
+RSpec.describe LinkedList do
+  it 'holds two nodes' do
 
-#     list = LinkedList.new
-#     list.append("bloop")
-#     list.append("flomp")
+    list = LinkedList.new
+    list.append("bloop")
+    list.append("flomp")
 
-#   expect(list.head.next_node.data).to eq("flomp")
-#   end
-# end
+  expect(list.head.next_node.data).to eq("flomp")
+  end
+end
 
-# RSpec.describe LinkedList do
-#   it 'counts two nodes' do
+RSpec.describe LinkedList do
+  it 'counts two nodes' do
 
-#     list = LinkedList.new
-#     list.append("bloop")
-#     list.append("flomp")
+    list = LinkedList.new
+    list.append("bloop")
+    list.append("flomp")
 
-#   expect(list.count).to eq(2)
-#   end
-# end
+  expect(list.count).to eq(2)
+  end
+end
 
-# RSpec.describe LinkedList do
-#   it 'counts one node' do
+RSpec.describe LinkedList do
+  it 'counts one node' do
 
-#     list = LinkedList.new
-#     list.append("bloop")
+    list = LinkedList.new
+    list.append("bloop")
 
-#   expect(list.count).to eq(1)
-#   end
-# end
+  expect(list.count).to eq(1)
+  end
+end
 
-# RSpec.describe LinkedList do
-#   it 'counts zero nodes' do
+RSpec.describe LinkedList do
+  it 'counts zero nodes' do
 
-#     list = LinkedList.new
+    list = LinkedList.new
 
-#   expect(list.count).to eq(0)
-#   end
-# end
+  expect(list.count).to eq(0)
+  end
+end
 
 RSpec.describe LinkedList do
   it 'counts four nodes' do
@@ -71,8 +71,59 @@ RSpec.describe LinkedList do
     list.append("flomp")
     list.append("teeth")
     list.append("awer")
-    # require 'pry'; binding.pry
 
   expect(list.count).to eq(4)
   end
+  it 'turns data to string' do
+    list = LinkedList.new
+    list.append("bomp")
+    # require 'pry'; binding.pry
+
+    expect(list.to_s).to eq("bomp")
+    list.append('clomp')
+    expect(list.to_s).to eq("bomp clomp")
+  end
+
+  it 'prepends' do 
+    list = LinkedList.new
+    list.append("bomp")
+    list.prepend('clomp')
+
+    expect(list.head.data).to eq('clomp')
+  end
+
+  it 'inserts at beginning' do
+    list = LinkedList.new
+    list.append('bagel')
+    list.insert(0, 'bloop')
+  
+
+    expect(list.head.data).to eq('bloop')
+  end
+
+  it 'inserts' do
+    list = LinkedList.new
+    list.append("bloop")
+    list.append("flomp")
+    list.append("jomp")
+    list.insert(1, 'after bloop, before flomp')
+    # require 'pry'; binding.pry
+
+    expect(list.head.next_node.data).to eq('after bloop, before flomp')
+  end
+
+  it 'finds' do 
+    list = LinkedList.new
+    list.append('bloop')
+    list.append('flomp')
+    list.append('shoo')
+    list.append('squish')
+    list.append('pow')
+    list.append('blorg')
+
+
+    expect(list.find(2,2)).to eq('shoo squish')
+
+  end
+
 end
