@@ -1,4 +1,4 @@
-require './lib/linked_list'
+require './lib/jungle_beat'
 require 'rspec'
 
 
@@ -31,6 +31,16 @@ RSpec.describe JungleBeat do
 
 
     expect(jb.list.count).to eq(3)
+  end
+
+  it 'plays' do 
+    jb = JungleBeat.new
+    jb.append('deep doo too')
+    jb.play
+
+
+
+    expect(jb.play).to eq(`say -r 500 -v Boing #{beats}`)
   end
 
 
