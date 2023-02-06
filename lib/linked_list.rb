@@ -65,6 +65,7 @@ class LinkedList
   def insert(position, data)
     node = Node.new(data)
     current_node = @head.next_node
+    last_node = @head
     if position != 0
       position.times do
         current_node = current_node.next_node
@@ -90,6 +91,30 @@ class LinkedList
       current_node = current_node.next_node
     end
     arr.join(" ")
+
+    end
+
+    def includes?(data)
+      current_node = @head
+      until current_node.data == data || (current_node.data != data && current_node.next_node.nil?)
+        current_node
+        return true
+
+
+      end
+
+    
+    
+    end
+
+    def pop 
+      current_node = @head
+      last_node = @head
+      until current_node.next_node.nil?
+        last_node = current_node
+        current_node = current_node.next_node
+      end
+      last_node.next_node = nil
 
     end
 

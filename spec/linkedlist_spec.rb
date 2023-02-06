@@ -126,4 +126,19 @@ RSpec.describe LinkedList do
 
   end
 
+  it 'pops' do 
+    list = LinkedList.new
+    list.append('bloop')
+    list.append('flomp')
+    list.append('shoo')
+    list.append('squish')
+    list.append('pow')
+    list.append('blorg')
+    list.pop
+
+
+    expect(list.count).to eq(5)
+
+  end
+
 end
