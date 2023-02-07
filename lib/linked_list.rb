@@ -9,18 +9,16 @@ class LinkedList
 
 
   end
-  def to_s
-    arr = []
-    # require 'pry'; binding.pry
-    arr.push(@head.data)
+  def to_string
     current_node = @head
-    if current_node.next_node != nil
-      arr.push(current_node.next_node.data)
+    stringer = []
+    stringer.push(current_node.data)
+    until current_node.next_node.nil?
       current_node = current_node.next_node
-
+      stringer.push(current_node.data)
     end
 
-    return arr.join(" ")
+    return stringer.join(" ")
   end
 
   def count
@@ -53,6 +51,7 @@ class LinkedList
     end
     current_node.next_node = Node.new(data)
   end
+
   def prepend(data)
     if @head
       @head, @head.next_node = Node.new(data), @head
@@ -62,22 +61,29 @@ class LinkedList
     end
   end
 
-  def insert(position, data)
-    node = Node.new(data)
-    current_node = @head.next_node
+def insert(position, data)
+  if self.head.nil? 
+    self.append(data)
+  elsif position == 0
+    self.prepend(data)
+  elsif position > self.count 
+    return 'Error, position larger than total nodes'
+  else 
     last_node = @head
-    if position != 0
-      position.times do
-        current_node = current_node.next_node
-      end
-      node.next_node = current_node.next_node
-      current_node.next_node = node
-    else 
-      node.next_node = @head
-      @head = node
+    count = 1
+    next_node = last_node.next_node
+    until count == position
+      last_node = last_node.next_node
+      next_node = last_node.next_node
+      count += 1 
     end
+    new_node = Node.new(data)
+    new_node.next_node = next_node
+    last_node.next_node = new_node
+    end
+end
 
-  end
+
 
   def find(position, elements)
     current_node = @head
@@ -95,16 +101,8 @@ class LinkedList
     end
 
     def includes?(data)
-      current_node = @head
-      until current_node.data == data || (current_node.data != data && current_node.next_node.nil?)
-        current_node
-        return true
-
-
-      end
-
-    
-    
+      checker = self.to_string
+      checker.include?(data)
     end
 
     def pop 

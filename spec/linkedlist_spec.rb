@@ -79,9 +79,20 @@ RSpec.describe LinkedList do
     list.append("bomp")
     # require 'pry'; binding.pry
 
-    expect(list.to_s).to eq("bomp")
+    expect(list.to_string).to eq("bomp")
     list.append('clomp')
-    expect(list.to_s).to eq("bomp clomp")
+    expect(list.to_string).to eq("bomp clomp")
+  end
+
+  it 'turns many to string' do
+    list = LinkedList.new
+    list.append("bomp")
+    list.append("flomp")
+    list.append("teeth")
+    list.append("awer")
+
+    expect(list.to_string).to eq("bomp flomp teeth awer")
+
   end
 
   it 'prepends' do 
@@ -91,6 +102,7 @@ RSpec.describe LinkedList do
 
     expect(list.head.data).to eq('clomp')
   end
+
 
   it 'prepends longer' do 
     list = LinkedList.new
@@ -109,6 +121,7 @@ RSpec.describe LinkedList do
     expect(list.head.next_node.next_node.next_node.data).to eq('slamp')
 
   end
+
 
   it 'inserts at beginning' do
     list = LinkedList.new
@@ -129,6 +142,7 @@ RSpec.describe LinkedList do
 
     expect(list.head.next_node.data).to eq('after bloop, before flomp')
   end
+
 
   it 'finds' do 
     list = LinkedList.new
@@ -158,6 +172,15 @@ RSpec.describe LinkedList do
 
     expect(list.count).to eq(5)
 
+  end
+
+  it 'includes?' do
+    list = LinkedList.new
+    list.append('bloop')
+    list.append('flomp')
+
+    expect(list.includes?('flomp')).to eq(true)
+    
   end
 
 end
