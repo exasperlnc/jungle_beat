@@ -92,6 +92,8 @@ RSpec.describe LinkedList do
     expect(list.head.data).to eq('clomp')
   end
 
+
+
   it 'inserts at beginning' do
     list = LinkedList.new
     list.append('bagel')
@@ -111,6 +113,23 @@ RSpec.describe LinkedList do
 
     expect(list.head.next_node.data).to eq('after bloop, before flomp')
   end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   it 'finds' do 
     list = LinkedList.new
