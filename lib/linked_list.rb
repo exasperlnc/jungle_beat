@@ -103,16 +103,8 @@ end
     end
 
     def includes?(data)
-      current_node = @head
-      until current_node.data == data || (current_node.data != data && current_node.next_node.nil?)
-        current_node
-        return true
-
-
-      end
-
-    
-    
+      checker = self.to_s
+      checker.include?(data)
     end
 
     def pop 
