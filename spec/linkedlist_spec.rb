@@ -79,9 +79,20 @@ RSpec.describe LinkedList do
     list.append("bomp")
     # require 'pry'; binding.pry
 
-    expect(list.to_s).to eq("bomp")
+    expect(list.to_string).to eq("bomp")
     list.append('clomp')
-    expect(list.to_s).to eq("bomp clomp")
+    expect(list.to_string).to eq("bomp clomp")
+  end
+
+  it 'turns many to string' do
+    list = LinkedList.new
+    list.append("bomp")
+    list.append("flomp")
+    list.append("teeth")
+    list.append("awer")
+
+    expect(list.to_string).to eq("bomp flomp teeth awer")
+
   end
 
   it 'prepends' do 

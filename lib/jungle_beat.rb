@@ -10,24 +10,19 @@ class JungleBeat
   
   def append(data)
     data_array = data.split
-    data_array.map do 
+    data_array.map do |data|
       list.append(data)
     end
 
   end
 
   def play
-    current_node = @head
-    data_array = []
-    data_array.push current_node
+    beats = self.list.to_s
+    `say -r 500 #{beats}` 
+  end
 
-    until current_node.next_node.nil?
-      data_array.push current_node.next_node
-      current_node = current_node.next_node
-    end
-    
-    beats = data_array.join(" ")
-    return `say -r 500 -v Boing #{beats}`
+  def count
+    self.list.count
   end
 
   

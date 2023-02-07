@@ -9,18 +9,16 @@ class LinkedList
 
 
   end
-  def to_s
-    arr = []
-    # require 'pry'; binding.pry
-    arr.push(@head.data)
+  def to_string
     current_node = @head
-    if current_node.next_node != nil
-      arr.push(current_node.next_node.data)
+    stringer = []
+    stringer.push(current_node.data)
+    until current_node.next_node.nil?
       current_node = current_node.next_node
-
+      stringer.push(current_node.data)
     end
 
-    return arr.join(" ")
+    return stringer.join(" ")
   end
 
   def count
@@ -103,7 +101,7 @@ end
     end
 
     def includes?(data)
-      checker = self.to_s
+      checker = self.to_string
       checker.include?(data)
     end
 

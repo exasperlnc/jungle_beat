@@ -2,6 +2,7 @@
   class Node
     attr_reader :data
     attr_accessor :next_node
+    attr_reader :next_node
 
     def initialize(data)
 

@@ -29,7 +29,6 @@ RSpec.describe JungleBeat do
     jb = JungleBeat.new
     jb.append('deep doo too')
 
-
     expect(jb.list.count).to eq(3)
   end
 
