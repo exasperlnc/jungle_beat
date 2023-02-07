@@ -115,22 +115,6 @@ RSpec.describe LinkedList do
   end
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   it 'finds' do 
     list = LinkedList.new
     list.append('bloop')
@@ -158,6 +142,15 @@ RSpec.describe LinkedList do
 
     expect(list.count).to eq(5)
 
+  end
+
+  it 'includes?' do
+    list = LinkedList.new
+    list.append('bloop')
+    list.append('flomp')
+
+    expect(list.includes?('flomp')).to eq(true)
+    
   end
 
 end
