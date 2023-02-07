@@ -104,6 +104,24 @@ RSpec.describe LinkedList do
   end
 
 
+  it 'prepends longer' do 
+    list = LinkedList.new
+    list.append("bomp")
+    list.append("jimp")
+    list.append("slamp")
+    list.append("flam")
+    list.append("dorp")
+    list.append("clank")
+    list.append("skip")
+    list.append("bloomf")
+    list.append("flop")
+    list.prepend('clomp')
+
+    expect(list.head.data).to eq('clomp')
+    expect(list.head.next_node.next_node.next_node.data).to eq('slamp')
+
+  end
+
 
   it 'inserts at beginning' do
     list = LinkedList.new
@@ -149,6 +167,7 @@ RSpec.describe LinkedList do
     list.append('pow')
     list.append('blorg')
     list.pop
+    # require 'pry'; binding.pry
 
 
     expect(list.count).to eq(5)
